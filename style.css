@@ -219,7 +219,6 @@ header {
     margin-bottom: 25px;
 }
 
-
 .catalog-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -240,11 +239,11 @@ header {
     cursor: pointer;
 }
 
+    
 .catalog-item:hover {
     transform: translateY(-5px);
     background-color: #ffffff;
 }
-
 
 @media (max-width: 968px) {
     .hero-section, .three-columns-container, .process-banner, .catalog-grid {
