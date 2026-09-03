@@ -1,0 +1,132 @@
+@import url("style.css");
+
+body {
+    background-color: #bdbdbd;
+    color: #ffffff;
+    line-height: 1.6;
+}
+#catalog-section {
+    padding: 120px 0;
+}
+
+.dsc-catalog-cards {
+    display: grid;
+    grid-gap: 35px;
+    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+}
+
+.dsc-catalog-card-top {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.dsc-catalog-card-top img {
+    width: 150px;
+    height: 150px;
+}
+
+.dsc-catalog-card-bottom {
+    padding: 10px 20px;
+    min-height: 110px;
+}
+
+.dsc-catalog-card-bottom h3 {
+    color: var(--dsc-color-font-secondary);
+    font-size: 25px;
+}
+
+.dsc-catalog-card-bottom h4 {
+    color: var(--dsc-color-font-primary);
+    font-size: 15px;
+}
+
+/*
+/*code doidinho*/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+
+/*-- VARIABLES CSS--*/
+/*Colores*/
+:root {
+    --first-color: #4a6974;
+    --second-color: #2f9e66;
+    --third-color: #30867b;
+    --four-color: #4d9785;
+    --accent-color: #000000;
+    --dark-color: #161616;
+}
+
+/*Tipografia responsive*/
+:root {
+    --body-font: 'Open Sans';
+    --h1-font-size: 1.5rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: 0.938rem;
+    --smaller-font-size: 0.75rem;
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        --h1-font-size: 2rem;
+        --normal-font-size: 1rem;
+        --smaller-font-size: 0.813rem;
+    }
+}
+
+/*-- BASE --*/
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: var(--h1-font-size);
+}
+
+a {
+    text-decoration: none;
+}
+
+/*-- LAYAOUT --*/
+.main {
+    padding: 2rem 0;
+}
+
+.bd-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    max-width: 1700px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    align-items: center;
+    gap: 2rem;
+}
+
+.w-64 {
+    width: 250px;
+    height: 200px;
+}
+
+/*-- FOOTER --*/
+
+footer {
+    text-align: center;
+}
+
+/*-- MEDIA QUERIES --*/
+@media screen and (min-width: 1200px) {
+    body {
+        margin: 3rem 0 0 0;
+    }
+
+    .title-shop {
+        margin: 0 5rem;
+    }
+
+    .bd-grid {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
