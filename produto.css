@@ -1,34 +1,58 @@
 @import url("style.css");
 
 body {
-    background-color: #bdbdbd;
-    color: #ffffff;
+    background-color: #242525;
+    color: #d4d0d0;
 }
 
-.min-h-screen {
-    display: grid;
-    grid-gap: 35px;
-    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+.area-busca {
+   max-width: 650px;
+   margin: 0 auto;
 }
 
-/*-- LAYAOUT --*/
-
-.bd-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    max-width: 1700px;
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-    align-items: center;
-    gap: 2rem;
+.busca {
+   width: 760px;
+   height: 40px;
+   padding: 5px;
+   display: flex;
 }
 
-.w-64 {
+.busca-campo {
+   border: none;
+   font-size: 25px;
+   outline: none;
+   width: 100%;
+   padding: 10px;    
+   background-color: #e0e0e0; 
+   border-radius: 20px;
+}
+
+.catalogo {
+   margin: 100px auto;
+   width: 1400px;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 50px;
+   justify-content: space-around;
+}
+
+.card{
+    background-color: #5c5f5d;
+    border-radius: 20px;
+    padding: 9px;
+    color: rgb(238, 238, 238);
+}
+
+.card-img{
+    margin: auto;
+    margin-top: 3px;
     width: 250px;
     height: 200px;
+    border-radius: 20px;
 }
 
 /*-- MEDIA QUERIES --*/
+
 @media screen and (min-width: 1200px) {
     body {
         margin: 3rem 0 0 0;
