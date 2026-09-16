@@ -77,9 +77,19 @@ if (FORM_CADASTRAR) {
             genero: document.getElementById("genero").selectedOptions[0].text, 
         };
 
+        let listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+        listaUsuarios.push(usuario);
+
+        localStorage.setItem("usuarios", JSON.stringify(listaUsuarios));
+
+        window.location.href = "loginho.html"
+
+        /*-
         localStorage.setItem("usuarioCadastro", JSON.stringify(usuario));
         alert("Cadastro Realizado com SUCESSO!"); 
         window.location.href = "login.html";
+        */
     });
 }
 
@@ -88,23 +98,31 @@ const FORM_LOGIN = document.getElementById("form-logar");
 if (FORM_LOGIN) {
     FORM_LOGIN.addEventListener("submit", function(event) {
         event.preventDefault();
-        
-        const usuarioCadastro = localStorage.getItem("usuarioCadastro");
+
+        const emailDigitado = document.getElementById("email").value;
+        const senhaDigitada = document.getElementById("senha").value;
+
+        const listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+        const usuarioValido = listaUsuarios.find(u => u.email === emailDigitado && u.senha === senhaDigitada);
+
+        /*-const usuarioCadastro = localStorage.getItem("usuarioCadastro");*/
 
         if (usuarioCadastro) {
-            const usuarioEncontrado = JSON.parse(usuarioCadastro);
-            const emailDigitado = document.getElementById("email").value;
-            const senhaDigitada = document.getElementById("senha").value;
-
-            if (emailDigitado === usuarioEncontrado.email && senhaDigitada === usuarioEncontrado.senha) {
+            localStorage.setItem("usuarioLogado", JSON.stringify(usuarioValido));
+            /* const usuarioEncontrado = JSON.parse(usuarioCadastro); */
+            
+            /*if (emailDigitado === usuarioEncontrado.email && senhaDigitada === usuarioEncontrado.senha) {
                 alert("Usuário Logado com Sucesso!");
                 window.location.href = "index.html"; 
             } else {
                 alert("ATENÇÃO: Email ou Senha Incorretos. Tente novamente.");
-            }
+            }*/ 
 
+                alert("Usuário Logado com Sucesso!");
+                window.location.href = "loginho.html"; //verificar o funcionamento
         } else {
-            alert("Nenhum usuário cadastrado encontrado no sistema.");
+            alert("ATENÇÃO: Email ou senha incorretos, ou nenhum usuário cadastrado no sistema.");
         }
     });
 }
