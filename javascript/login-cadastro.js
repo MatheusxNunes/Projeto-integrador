@@ -39,7 +39,7 @@ if (FORM_CADASTRAR) {
             campoSenha.classList.add("erro-input");
             temErro = true;
         } else {
-            erroSenha.innerText = "";
+            erroSenha.innerText = " ";
             campoSenha.classList.remove("erro-input");
             campoSenha.classList.add("sucesso-input");
         }
@@ -85,11 +85,12 @@ if (FORM_CADASTRAR) {
 
         window.location.href = "loginho.html"
 
-        /*-
+        /*-*/
         localStorage.setItem("usuarioCadastro", JSON.stringify(usuario));
         alert("Cadastro Realizado com SUCESSO!"); 
         window.location.href = "login.html";
-        */
+        /*-*/
+        
     });
 }
 
@@ -106,21 +107,21 @@ if (FORM_LOGIN) {
 
         const usuarioValido = listaUsuarios.find(u => u.email === emailDigitado && u.senha === senhaDigitada);
 
-        /*-const usuarioCadastro = localStorage.getItem("usuarioCadastro");*/
+        /*-*/const usuarioCadastro = localStorage.getItem("usuarioCadastro");
 
         if (usuarioCadastro) {
             localStorage.setItem("usuarioLogado", JSON.stringify(usuarioValido));
-            /* const usuarioEncontrado = JSON.parse(usuarioCadastro); */
+            /*-*/ const usuarioEncontrado = JSON.parse(usuarioCadastro); 
             
-            /*if (emailDigitado === usuarioEncontrado.email && senhaDigitada === usuarioEncontrado.senha) {
+            /*-*/if (emailDigitado === usuarioEncontrado.email && senhaDigitada === usuarioEncontrado.senha) {
                 alert("Usuário Logado com Sucesso!");
                 window.location.href = "index.html"; 
             } else {
                 alert("ATENÇÃO: Email ou Senha Incorretos. Tente novamente.");
-            }*/ 
+            }/*-*/ 
 
                 alert("Usuário Logado com Sucesso!");
-                window.location.href = "loginho.html"; //verificar o funcionamento
+                window.location.href = "login.html"; //verificar o funcionamento
         } else {
             alert("ATENÇÃO: Email ou senha incorretos, ou nenhum usuário cadastrado no sistema.");
         }
