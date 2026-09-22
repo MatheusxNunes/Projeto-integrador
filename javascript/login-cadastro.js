@@ -12,7 +12,7 @@ if (FORM_CADASTRAR) {
         const erroEmail = document.getElementById("erro-email");
         const emailDigitado = campoEmail.value.trim();
  
-        // 1. Obter a lista completa de utilizadores
+        // lista de utilizadores
         let listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
  
         // 2. Verificar se o e-mail já existe na lista
@@ -89,6 +89,7 @@ if (FORM_CADASTRAR) {
 }
  
 // ===== LOGIN =====
+
 const FORM_LOGIN = document.getElementById("form-logar");
  
 if (FORM_LOGIN) {
