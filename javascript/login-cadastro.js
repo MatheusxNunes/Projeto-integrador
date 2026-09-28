@@ -12,10 +12,10 @@ if (FORM_CADASTRAR) {
         const erroEmail = document.getElementById("erro-email");
         const emailDigitado = campoEmail.value.trim();
  
-        // lista de utilizadores
+// lista de utilizadores
         let listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
  
-        // 2. Verificar se o e-mail já existe na lista
+// 2. Verificar se o e-mail já existe na lista
         const emailJaExiste = listaUsuarios.some(u => u.email === emailDigitado);
  
         if (emailJaExiste) {
@@ -28,7 +28,7 @@ if (FORM_CADASTRAR) {
             campoEmail.classList.add("sucesso-input");
         }
  
-        // Validação da Senha
+// Validação da Senha
         const campoSenha = document.getElementById("senha");
         const erroSenha = document.getElementById("erro-senha");
         const senhaDigitada = campoSenha.value;
@@ -43,7 +43,7 @@ if (FORM_CADASTRAR) {
             campoSenha.classList.add("sucesso-input");
         }
  
-        // Validação do DDD
+// Validação do DDD
         const campoDDD = document.getElementById("ddd");
         const erroDDD = document.getElementById("erro-ddd");
         const dddDigitado = campoDDD.value;
@@ -58,12 +58,12 @@ if (FORM_CADASTRAR) {
             campoDDD.classList.add("sucesso-input");
         }
  
-        // Se houver erros, interrompe a execução
+// Se houver erros, interrompe a execução
         if (temErro) {
             return;
         }
  
-        // Montar objeto do utilizador
+// Montar objeto do utilizador
         const usuario = {
             nome: document.getElementById("nome").value,
             sobrenome: document.getElementById("sobrenome").value,
@@ -79,7 +79,7 @@ if (FORM_CADASTRAR) {
             genero: document.getElementById("genero").selectedOptions[0]?.text || "",
         };
  
-        // Guardar o novo utilizador no array e atualizar o localStorage
+    // Guardar o novo utilizador no array e atualizar o localStorage
         listaUsuarios.push(usuario);
         localStorage.setItem("usuarios", JSON.stringify(listaUsuarios));
  

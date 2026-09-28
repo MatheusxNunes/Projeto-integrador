@@ -1,5 +1,7 @@
 //?
 
+
+
 const FORM_CARD = document.getElementById("form-criar-card");
 
 if (FORM_CARD){
@@ -44,3 +46,31 @@ if (containerCatalogo) {
         });
     }
 }
+
+
+const formulario = document.getElementById("form-criar-card");
+
+formulario.addEventListener("submit", function (event){
+    event.preventDefault();
+
+    const titulo = document.getElementById("titulo-card").value;
+    const preco = document.getElementById("preco-card").value;
+    const imagem = document.getElementById("imagem-card").valuel;
+    const descricao = document.getElementById("descricao-card").valuel;
+
+    const novoItem = {
+        titulo: titulo,
+        preco: preco,
+        imagem: imagem,
+        descricao: descricao
+    };
+
+    let itens = JSON.parse(localStorage.getItem("itensdoacao"))|| [];
+
+    alert("Item adicionado ao catálogo!");
+
+    formulario.reset();
+
+    window.location.href = "produto.html"
+
+});
