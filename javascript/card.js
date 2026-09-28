@@ -1,4 +1,5 @@
-//?
+/* 
+
 
 
 
@@ -74,3 +75,30 @@ formulario.addEventListener("submit", function (event){
     window.location.href = "produto.html"
 
 });
+
+*/
+const formulario = document.getElementById("form-criar-card");
+ 
+if (formulario) {
+    formulario.addEventListener("submit", function(event) {
+        event.preventDefault();
+ 
+        const novoCard = {
+            id: Date.now(),
+            titulo: document.getElementById("titulo-card").value,
+            descricao: document.getElementById("descricao-card").value,
+            preco: document.getElementById("preco-card").value,
+            imagemUrl: document.getElementById("imagem-card").value
+        };
+ 
+        const listaCards = JSON.parse(localStorage.getItem("catalogoCards")) || [];
+ 
+        listaCards.push(novoCard);
+ 
+        localStorage.setItem("catalogoCards", JSON.stringify(listaCards));
+ 
+        alert("Item adicionado ao catálogo!");
+ 
+        window.location.href = "produto.html";
+    });
+}
