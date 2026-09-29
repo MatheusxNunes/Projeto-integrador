@@ -16,12 +16,11 @@ itens.forEach(function(itenm) {
 
 const containerCatalogo = document.getElementById("container-catalogo");
 
-const listaCards = JSON.parse(localStorage.getItem("catalogoCards")) || [];
-
-const usuarioId = localStorage.getItem("usuarioId");
-
+//const usuarioId = localStorage.getItem("usuarioId");
 
 if (containerCatalogo) {
+    
+    const listaCards = JSON.parse(localStorage.getItem("catalogoCards")) || [];
 
     listaCards.forEach(function(card) {
  
@@ -41,8 +40,6 @@ if (containerCatalogo) {
         containerCatalogo.appendChild(novoCard);
     });
 
-    
-
     document.querySelectorAll(".botao-excluir").forEach(function(botao){
 
         botao.addEventListener("click", function(){
@@ -53,12 +50,14 @@ if (containerCatalogo) {
                     return card.id !== id;
                 });
 
-                localStorage.setItem("catalogoCards", JSON.stringify(listaCards));
-
         this.closest(".card").remove();
         });
+
+        window.location.href = "produto.html";
     });
 }
+
+
          
         
         
