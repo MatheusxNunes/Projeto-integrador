@@ -1,15 +1,10 @@
-/* 
 
+const formulario = document.getElementById("form-criar-card");
 
-
-
-const FORM_CARD = document.getElementById("form-criar-card");
-
-if (FORM_CARD){
     FORM_CARD.addEventListener("submit", function(event){
         event.preventDefault();
 
-        const   novocard = {
+        const   novoCard = {
             id: Date.now(),
             titulo: document.getElementById("titulo-ard").value,
             descricao: document.getElementById("descricao-card").value,
@@ -17,17 +12,17 @@ if (FORM_CARD){
             imagemUrl: document.getElementById("imagem-card").value,
         };
 
-        const listaCards = JSON.parse(localStorage.getItem("catalogoCArds")) || [] 
+        let listaCards = JSON.parse(localStorage.getItem("catalogoCArds")) || [] 
         
         listaCards.push(novoCard);
         localStorage.setItem("catalogoCards", JSON.stringify(listaCards));
 
         alert("Item adicionado ao catálogo com sucesso!");
-        window.location.href = "index.html";
+        window.location.href = "produto.html";
 
     });
 
-}
+
 
 const  containerCatalogo = document.getElementById("container-catalogo");
 
@@ -51,7 +46,7 @@ if (containerCatalogo) {
 
 const formulario = document.getElementById("form-criar-card");
 
-formulario.addEventListener("submit", function (event){
+formulario.addEventListener("submit", function (event) {
     event.preventDefault();
 
     const titulo = document.getElementById("titulo-card").value;
@@ -59,45 +54,53 @@ formulario.addEventListener("submit", function (event){
     const imagem = document.getElementById("imagem-card").valuel;
     const descricao = document.getElementById("descricao-card").valuel;
 
-    const novoItem = {
+    const novoCard = {
+        id: Date.now(),
         titulo: titulo,
         preco: preco,
         imagem: imagem,
         descricao: descricao
     };
 
-    let itens = JSON.parse(localStorage.getItem("itensdoacao"))|| [];
+    let cards = JSON.parse(localStorage.getItem("catalogoCards")) || [];
 
-    alert("Item adicionado ao catálogo!");
+    cards.push(novoCard);
 
-    formulario.reset();
+    localStorage.setItem("catalogoCards", JSON.stringify(cards));
 
     window.location.href = "produto.html"
 
+    /*
+    alert("Item adicionado ao catálogo!");
+
+    formulario.reset();
+    */
+
 });
 
-*/
+    let usuarioId = localStorage.getItem("usuarioId");
 
-let usuarioId = localStorage.getItem("usuarioId");
+    if (!usuarioId) {
+        usuarioId = crypto.randomUUID();
 
-if (!usuarioId){
-    usuarioId = crypto.randomUUID();
+        localStorage.setItem("usuarioId", usuarioId);
+    }
 
-    localStorage.setItem("usuarioId", usuarioId);
-}
-const novoCard = {
-    id: Date.now(),
-    titulo: document.getElementById("titulo-card").value,
-    descricao: document.getElementById("descricao-card").value,
-    preco: document.getElementById("preco-card").value,
-    imagemUrl: document.getElementById("imagem-card").value
-};
+    const novoCard = {
+        id: Date.now(),
+        titulo: document.getElementById("titulo-card").value,
+        descricao: document.getElementById("descricao-card").value,
+        preco: document.getElementById("preco-card").value,
+        imagemUrl: document.getElementById("imagem-card").value
+    };
 
-const listaCards = JSON.parse(localStorage.getItem("catalogoCards")) || [];
+    const listaCards = JSON.parse(localStorage.getItem("catalogoCards")) || [];
 
-listaCards.push(novoCard);
+    listaCards.push(novoCard);
 
-localStorage.setItem("catalogoCards", JSON.stringify(listaCards));
+    localStorage.setItem("catalogoCards", JSON.stringify(listaCards));
+
+
 /*
 
 const formulario = document.getElementById("form-criar-card");

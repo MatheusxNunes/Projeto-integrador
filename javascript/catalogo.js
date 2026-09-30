@@ -14,51 +14,17 @@ itens.forEach(function(itenm) {
 });
 */
 
-const containerCatalogo = document.getElementById("container-catalogo");
+    const containerCatalogo = document.getElementById("container-catalogo");
 
-//const usuarioId = localStorage.getItem("usuarioId");
+    const listasCards = JSON.parse.apply(localStorage.getItem("catalogoCards")) || [];
 
-if (containerCatalogo) {
-    
-    const listaCards = JSON.parse(localStorage.getItem("catalogoCards")) || [];
+    listasCards.forEach(function(card) {
 
-    listaCards.forEach(function(card) {
- 
         const novoCard = document.createElement("div");
- 
+
         novoCard.classList.add("card");
- 
-        novoCard.innerHTML = `
-            <img src="${card.imagemUrl}" class="card-img" alt="${card.titulo}">
-            <div class="card-body">
-                <h3 class="card-title">${card.titulo}</h3>
-                <p>${card.descricao}</p>
-                <span class="preco">R$ ${card.preco}</span>
-                ${card.usuarioId === usuarioId ? '<button class="botao-excluir" data-id="${card.id}">EXCLUIR</button>': ""}
-            </div>`;
- 
+
+            novoCard.innerHTML = '<img src"${card.imagemUrl}" class="card-img" alt="${card.titulo}"> <div class="card-body"> <h3 class="card-title"> <p>${card.descricao}</p> <p>${card.preco}</p> <button class="botao" >TENHO INTERESSE</button> </div>';
+
         containerCatalogo.appendChild(novoCard);
     });
-
-    document.querySelectorAll(".botao-excluir").forEach(function(botao){
-
-        botao.addEventListener("click", function(){
-            const id = Number(this.dataset.id);
-                let listaCard = JSON.parse(localStorage.getItem("catalogoCards")) || [];
-
-                listaCards = listaCards.filter(function(card) {
-                    return card.id !== id;
-                });
-
-        this.closest(".card").remove();
-        });
-
-        window.location.href = "produto.html";
-    });
-}
-
-
-         
-        
-        
-    
