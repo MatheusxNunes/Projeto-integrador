@@ -1,4 +1,4 @@
-
+//!!!!!!!!!! Vai pro Banco de Dados !!!!!!!!!!
 // ===== CADASTRO =====
 const FORM_CADASTRAR = document.getElementById("form-cadastrar");
  
@@ -15,7 +15,7 @@ if (FORM_CADASTRAR) {
 // lista de utilizadores
         let listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
  
-// 2. Verificar se o e-mail já existe na lista
+    // 2. Verificar se o e-mail já existe na lista
         const emailJaExiste = listaUsuarios.some(u => u.email === emailDigitado);
  
         if (emailJaExiste) {
@@ -28,7 +28,7 @@ if (FORM_CADASTRAR) {
             campoEmail.classList.add("sucesso-input");
         }
  
-// Validação da Senha
+        // Validação da Senha
         const campoSenha = document.getElementById("senha");
         const erroSenha = document.getElementById("erro-senha");
         const senhaDigitada = campoSenha.value;
@@ -43,7 +43,7 @@ if (FORM_CADASTRAR) {
             campoSenha.classList.add("sucesso-input");
         }
  
-// Validação do DDD
+        // Validação do DDD
         const campoDDD = document.getElementById("ddd");
         const erroDDD = document.getElementById("erro-ddd");
         const dddDigitado = campoDDD.value;
@@ -58,12 +58,12 @@ if (FORM_CADASTRAR) {
             campoDDD.classList.add("sucesso-input");
         }
  
-// Se houver erros, interrompe a execução
+        // Se houver erros, interrompe a execução
         if (temErro) {
             return;
         }
  
-// Montar objeto do utilizador
+        // Montar objeto do utilizador
         const usuario = {
             nome: document.getElementById("nome").value,
             sobrenome: document.getElementById("sobrenome").value,
@@ -79,7 +79,7 @@ if (FORM_CADASTRAR) {
             genero: document.getElementById("genero").selectedOptions[0]?.text || "",
         };
  
-    // Guardar o novo utilizador no array e atualizar o localStorage
+        // Guardar o novo utilizador no array e atualizar o localStorage
         listaUsuarios.push(usuario);
         localStorage.setItem("usuarios", JSON.stringify(listaUsuarios));
  
@@ -88,30 +88,30 @@ if (FORM_CADASTRAR) {
     });
 }
  
-// ===== LOGIN =====
+    // ===== LOGIN =====
 
-const FORM_LOGIN = document.getElementById("form-logar");
+    const FORM_LOGIN = document.getElementById("form-logar");
  
-if (FORM_LOGIN) {
-    FORM_LOGIN.addEventListener("submit", function(event) {
-        event.preventDefault();
+    if (FORM_LOGIN) {
+        FORM_LOGIN.addEventListener("submit", function(event) {
+            event.preventDefault();
  
-        const emailDigitado = document.getElementById("email").value.trim();
-        const senhaDigitada = document.getElementById("senha").value;
+            const emailDigitado = document.getElementById("email").value.trim();
+            const senhaDigitada = document.getElementById("senha").value;
  
-        // Obter a lista de utilizadores guardada
-        const listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+            // Obter a lista de utilizadores guardada
+            const listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
  
-        // Procurar o utilizador com o e-mail e senha correspondentes
-        const usuarioValido = listaUsuarios.find(u => u.email === emailDigitado && u.senha === senhaDigitada);
+            // Procurar o utilizador com o e-mail e senha correspondentes
+            const usuarioValido = listaUsuarios.find(u => u.email === emailDigitado && u.senha === senhaDigitada);
  
-        if (usuarioValido) {
-            // Guardar sessão do utilizador logado
-            localStorage.setItem("usuarioLogado", JSON.stringify(usuarioValido));
-            alert("Usuário Logado com Sucesso!");
-            window.location.href = "index.html"; // Redireciona para o painel/home
-        } else {
-            alert("ATENÇÃO: E-mail ou senha incorretos.");
-        }
-    });
+            if (usuarioValido) {
+                // Guardar sessão do utilizador logado
+                localStorage.setItem("usuarioLogado", JSON.stringify(usuarioValido));
+                alert("Usuário Logado com Sucesso!");
+                window.location.href = "index.html"; // Redireciona para o painel/home
+            } else {
+                alert("ATENÇÃO: E-mail ou senha incorretos.");
+            }
+        });
 }

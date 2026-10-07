@@ -16,7 +16,6 @@ listaCards.forEach(function(card) {
         >
  
         <div class="card-body">
- 
             <h3 class="card-title">
                 ${card.titulo}
             </h3>
@@ -28,16 +27,21 @@ listaCards.forEach(function(card) {
             <p>
                 R$ ${card.preco}
             </p>
+
+            <p>
+               Categoria: ${card.categoria}
+            </p>
  
             <button class="botao">
                 TENHO INTERESSE
             </button>
- 
         </div>
     `;
  
     containerCatalogo.appendChild(novoCard);
 });
+
+//Barra de busca
 
 const formBusca = document.querySelector('.busca');
 const campoBusca = document.querySelector('.busca-campo');
@@ -74,5 +78,4 @@ if (campoBusca) {
         });
 
     });
-
 }

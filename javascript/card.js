@@ -8,7 +8,11 @@ formulario.addEventListener("submit", function(event) {
         titulo: document.getElementById("titulo-card").value,
         preco: document.getElementById("preco-card").value,
         imagemUrl: document.getElementById("imagem-card").value,
-        descricao: document.getElementById("descricao-card").value
+        descricao: document.getElementById("descricao-card").value,
+        categoria: document.getElementById("categoria-card").value,//mudei aqui 
+        
+
+
     };
  
     let listaCards = JSON.parse(localStorage.getItem("catalogoCards")) || [];
